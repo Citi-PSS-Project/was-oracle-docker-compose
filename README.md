@@ -4,7 +4,15 @@ The YAML in this repository will create one network and up two containers runnin
 Before use the YAML file to up the containers, follow these steps:
 * Create in your Linux SO (VM) in the path `/opt/` one folder called: `citi-dependencies`, so, after that we have: `/opt/citi-dependencies`;
 * Inside `/opt/citi-dependencies` create two others folders like `/opt/citi-dependencies/was` and `/opt/citi-dependencies/oracle`;
-* To do that just execute: `mkdir -p /opt/{citi-dependencies/{was,oracle}}`;
+* To do that just execute: 
+```sh
+sudo mkdir -p /opt/citi-dependencies/was && \
+sudo mkdir -p /opt/citi-dependencies/oracle && \
+sudo mkdir -p /opt/citi-dependencies/oracle/db && \
+sudo mkdir -p /opt/citi-dependencies/oracle/scripts
+
+sudo chmod 755 -R /opt/citi-dependencies
+```
 
 That folders will be shared with Oracle and WAS containers in the YAML file.
 
