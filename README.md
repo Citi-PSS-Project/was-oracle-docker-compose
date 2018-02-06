@@ -27,3 +27,8 @@ password: wasadmin
 * Realize the configurations.
 
 #### Oracle database
+
+
+
+#### Oficial documentation
+https://docs.docker.com/engine/reference/commandline/exec/#examples
