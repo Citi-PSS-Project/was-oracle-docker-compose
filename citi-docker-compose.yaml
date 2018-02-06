@@ -1,4 +1,4 @@
-version: '3'
+version: '3.2'
 services:
     was:
       image: jetherrodrigues/was_8_5_5:stable
@@ -11,27 +11,25 @@ services:
       depends_on: 
         - "oracle"
       volumes: 
-        - was-lib: /opt/citi-dependencies/was
-
+        - /opt/citi-dependencies/was:/home
+      stdin_open: true
+      tty: true
+      command: > 
+          bash -c "/opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin/startManager.sh 
+          && /opt/IBM/WebSphere/AppServer/profiles/AppSrv01/bin/startNode.sh"
+      
     oracle:
-      image: jetherrodrigues/oracle-11-xe:stable
+      image: alexeiled/docker-oracle-xe-11g:latest
       container_name: oracle-db
       networks: 
           - citi-pss-network
       shm_size: '1gb'
       volumes: 
-        - data: /opt/citi-dependencies/oracle/db
-        - script-db: /opt/citi-dependencies/oracle/scripts
+        - /opt/citi-dependencies/oracle/db:/usr/lib/oracle/xe/oradata/XE
+        - /opt/citi-dependencies/oracle/scripts:/etc/entrypoint-initdb.d
       ports:
         - "1521:1521"
-        - "80180:80180"
+        - "8080:8080"
 networks: 
     citi-pss-network:
-        driver: bridge
-volumes:
-  data:
-    external: true
-  script-db:
-    external: true
-  was-lib:
-    external: true        
+        driver: bridge 
