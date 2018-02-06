@@ -18,7 +18,9 @@ That folders will be shared with Oracle and WAS containers in the YAML file.
 
 #### Execute the YAML file
 First, clone the repository: `git clone https://github.com/Citi-PSS-Project/was-oracle-docker-compose.git` after, inside it, execute: 
-`sudo docker-compose --file citi-docker-compose.yaml up -d`. 
+* To up the containers: `sudo docker-compose --file citi-docker-compose.yaml up -d`
+* To see the containers status: `sudo docker-compose --file citi-docker-compose.yaml ps`
+* To stop and remove containers up: `sudo docker-compose --file citi-docker-compose.yaml down`
 
 To run the YAML file is needed have all enviroment in Linux SO (or other SO) to Docker configured. To do that, follow the steps here: https://github.com/learn-docker-and-coding/start-with-docker
 
