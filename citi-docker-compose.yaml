@@ -1,0 +1,37 @@
+version: '3'
+services:
+    was:
+      image: jetherrodrigues/was_8_5_5:stable
+      container_name: was
+      ports:
+        - "28000:28000"
+        - "28001:28001"
+      networks: 
+        - citi-pss-network
+      depends_on: 
+        - "oracle"
+      volumes: 
+        - was-lib: /opt/citi-dependencies/was
+
+    oracle:
+      image: jetherrodrigues/oracle-11-xe:stable
+      container_name: oracle-db
+      networks: 
+          - citi-pss-network
+      shm_size: '1gb'
+      volumes: 
+        - data: /opt/citi-dependencies/oracle/db
+        - script-db: /opt/citi-dependencies/oracle/scripts
+      ports:
+        - "1521:1521"
+        - "80180:80180"
+networks: 
+    citi-pss-network:
+        driver: bridge
+volumes:
+  data:
+    external: true
+  script-db:
+    external: true
+  was-lib:
+    external: true        
