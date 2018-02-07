@@ -8,16 +8,15 @@ services:
         - "28001:28001"
       networks: 
         - citi-pss-network
+      entrypoint: ['bash']
+      # environment:
+      #   - DEBUG=true
       depends_on: 
         - "oracle"
       volumes: 
-        - /opt/citi-dependencies/was:/home
-      stdin_open: true
-      tty: true
-      command: > 
-          bash -c "/opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin/startManager.sh 
-          && /opt/IBM/WebSphere/AppServer/profiles/AppSrv01/bin/startNode.sh"
-      
+        - /opt/citi-dependencies/was:/home      
+      tty: true    
+
     oracle:
       image: alexeiled/docker-oracle-xe-11g:latest
       container_name: oracle-db
@@ -30,6 +29,8 @@ services:
       ports:
         - "1521:1521"
         - "8080:8080"
+      entrypoint: ['bash']
+      tty: true
 networks: 
     citi-pss-network:
         driver: bridge 
