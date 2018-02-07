@@ -25,11 +25,16 @@ First, clone the repository: `git clone https://github.com/Citi-PSS-Project/was-
 To run the YAML file is needed have all enviroment in Linux SO (or other SO) to Docker configured. To do that, follow the steps here: https://github.com/learn-docker-and-coding/start-with-docker
 
 #### Start the WAS
-* Execute on the WAS container:
+* Access the container:
 ```sh
-docker exec -ti was sh -c "/opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin/startManager.sh && /opt/IBM/WebSphere/AppServer/profiles/AppSrv01/bin/startNode.sh
+sudo docker exec -it was bash
 ```
-* To access:
+* Execute WAS on the container:
+```sh
+sh /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin/startManager.sh && sh /opt/IBM/WebSphere/AppServer/profiles/AppSrv01/bin/startNode.sh
+```
+* After the container started, just execute `exit` to go out the bash console;
+* To access the admin console:
 ```js
 http://localhost:28000/ibm/console
 username: wasadmin
@@ -38,8 +43,23 @@ password: wasadmin
 * Realize the configurations.
 
 #### Oracle database
+Access host database:
+```js
+hostname: localhost
+port: 1521
+sid: xe
+username: system
+password: oracle
+Password for SYS user
+```
 
-
+Access admin web interface:
+```js
+url: http://localhost:8080/apex
+workspace: internal
+user: admin
+password: oracle
+```
 
 #### Oficial documentation
 https://docs.docker.com/engine/reference/commandline/exec/#examples
