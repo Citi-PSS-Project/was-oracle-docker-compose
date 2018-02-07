@@ -40,7 +40,9 @@ http://localhost:28000/ibm/console
 username: wasadmin
 password: wasadmin
 ```
-* Realize the configurations.
+* Realize the configurations: 
+1. Copy all libraries needed to path: `/opt/citi-dependencies/was`;
+2. In web admin WAS interface, when need point some library, the path to show is `/home` (the libraries copy to the path in the instruction 1 will be here in this path);
 
 #### Oracle database
 Access host database:
