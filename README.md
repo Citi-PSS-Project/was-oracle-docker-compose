@@ -31,7 +31,9 @@ sudo docker exec -it was bash
 ```
 * Execute WAS on the container:
 ```sh
-sh /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin/startManager.sh && sh /opt/IBM/WebSphere/AppServer/profiles/AppSrv01/bin/startNode.sh
+sh /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin/startManager.sh && \
+sh /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin/syncNode.sh && \ 
+sh /opt/IBM/WebSphere/AppServer/profiles/AppSrv01/bin/startNode.sh
 ```
 * After the container started, just execute `exit` to go out the bash console;
 * To access the admin console:
