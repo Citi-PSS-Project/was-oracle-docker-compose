@@ -70,5 +70,7 @@ https://docs.docker.com/engine/reference/commandline/exec/#examples
 
 #### Links
 https://hub.docker.com/r/ibmcom/websphere-traditional/
+
 http://veithen.github.io/2014/11/02/running-was-in-docker.html
+
 https://docs.docker.com/samples/library/websphere-liberty/
