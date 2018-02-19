@@ -6,6 +6,7 @@ services:
       ports:
         - "28000:28000"
         - "28001:28001"
+        - "28013:28013"
       networks: 
         - citi-pss-network
       entrypoint: ['bash']
