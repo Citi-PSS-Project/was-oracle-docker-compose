@@ -67,3 +67,8 @@ password: oracle
 
 #### Oficial documentation
 https://docs.docker.com/engine/reference/commandline/exec/#examples
+
+#### Links
+http://veithen.github.io/2014/11/02/running-was-in-docker.html
+
+https://docs.docker.com/samples/library/websphere-liberty/
