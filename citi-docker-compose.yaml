@@ -1,16 +1,21 @@
 version: '3.2'
 services:
     was:
-      image: jetherrodrigues/was_8_5_5:stable
-      container_name: was
+      #image: jetherrodrigues/was_8_5_5:stable
+      image: jetherrodrigues/websphere-traditional:8.5.5.12-install
+      container_name: server1
+      hostname: server1
       ports:
-        - "28000:28000"
-        - "28001:28001"
-        - "28013:28013"
+         - "9080:9080"
+         - "9043:9043"
+         - "9443:9443"
+        #- "28000:28000"
+        #- "28001:28001"
+        #- "28013:28013"
       networks: 
         - citi-pss-network
-      entrypoint: ['bash']
-      # environment:
+      #entrypoint: ['bash']
+      #environment:
       #   - DEBUG=true
       depends_on: 
         - "oracle"
@@ -30,8 +35,9 @@ services:
       ports:
         - "1521:1521"
         - "8080:8080"
-      entrypoint: ['bash']
+      #entrypoint: ['bash']
       tty: true
+      command: sh start.sh
 networks: 
     citi-pss-network:
         driver: bridge 
