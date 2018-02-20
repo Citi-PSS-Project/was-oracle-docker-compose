@@ -25,23 +25,34 @@ First, clone the repository: `git clone https://github.com/Citi-PSS-Project/was-
 To run the YAML file is needed have all enviroment in Linux SO (or other SO) to Docker configured. To do that, follow the steps here: https://github.com/learn-docker-and-coding/start-with-docker
 
 #### Start the WAS
+
+*Not use anymore*
 * Access the container:
 ```sh
 sudo docker exec -it was bash
 ```
+*Not use anymore*
 * Execute WAS on the container:
 ```sh
 sh /opt/IBM/WebSphere/AppServer/profiles/Dmgr01/bin/startManager.sh && \
 sh /opt/IBM/WebSphere/AppServer/profiles/AppSrv01/bin/syncNode.sh && \ 
 sh /opt/IBM/WebSphere/AppServer/profiles/AppSrv01/bin/startNode.sh
 ```
-* After the container started, just execute `exit` to go out the bash console;
+* After the container started, just execute `exit` to go out the bash console; (*Not use anymore*)
+
 * To access the admin console:
+```js
+https://localhost:9043/ibm/console
+username: wsadmin
+password: [sudo docker exec server1 cat /tmp/PASSWORD]
+```
+*Not use anymore*
 ```js
 http://localhost:28000/ibm/console
 username: wasadmin
 password: wasadmin
 ```
+
 * Realize the configurations: 
 1. Copy all libraries needed to path: `/opt/citi-dependencies/was`;
 2. In web admin WAS interface, when need point some library, the path to show is `/home` (the libraries copy to the path in the instruction 1 will be here in this path);
